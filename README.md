@@ -47,7 +47,20 @@ Una vez realizadas las migraciones, los datos (productos, categorías, etc.) deb
 4. Abrir en el navegador:
 
    http://127.0.0.1:8000/
+   
+## Arquitectura del sistema
 
+ElectroStore está desarrollado con Django siguiendo el patrón MVT.
+
+- Models: definición de productos y entidades
+- Views: lógica de negocio y control de vistas
+- Templates: interfaz de usuario con HTML y CSS
+
+## Documentación
+
+El proyecto incluye un manual de usuario con una descripción general del sistema y su funcionamiento.
+
+Manual de Usuario: docs/Manual_de_Usuario_ElectroStore.pdf
 
 ## Autora
 
