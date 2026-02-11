@@ -1,0 +1,55 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Lista de facturas {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'fac_crear' %}" role="button"> Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Facturas</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Fecha de emisión</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio Total</th>
+                        <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factura in facturas %}
+                    <tr>
+                        <td scope="row">{{ factura.id}}</td>
+                        <td>{{ factura.numero_factura}}</td>
+                        <td>{{ factura.fecha}}</td>
+                        <td>{{ factura.descripcion}}</td>
+                        <td>{{ factura.precio_total}}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'fac_editar' factura.id %}" role="button" >Editar</a> 
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{% url 'fac_eliminar' factura.id %}" role="button" >Borrar</a>
+                            |
+                            <a name="" id="" class="btn btn-success" href="{% url 'fac_detalle' factura.id %}" role="button" >Detalles</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}

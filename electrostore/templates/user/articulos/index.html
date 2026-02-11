@@ -1,0 +1,59 @@
+{% extends "user/base.html" %}
+
+{% block titulo %}Lista de productos {%endblock%}
+
+{% block contenido %} 
+{% load humanize %}
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'ar_crear' %}" role="button">Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Productos</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for articulo in articulos %}
+                    <tr>
+                        <td scope="row">{{ articulo.id}}</td>
+                        <td>{{ articulo.nombre}}</td>
+                        <td>
+                            <img src="{{ articulo.imagen.url }}" height="100"> </td>
+                        <td>{{ articulo.descripcion}}</td>
+                        <td><span style="white-space: nowrap;"> {{ articulo.precio_formateado }} Gs</span> </td>
+                        <td>{{ articulo.categoria}}</td>
+                        <td> 
+                            <div class="d-flex ">
+                                <a name="" id="" class="btn btn-info" href="{% url 'ar_editar' articulo.id %}" role="button" >Editar</a> 
+                                <p class="ms-2 mr-2">|</p>&nbsp;&nbsp;
+                                <a name="" id="" class="btn btn-danger" href="{% url 'ar_eliminar' articulo.id %}" role="button"  onclick="return confirm('¿Estás seguro de que deseas eliminar este artículo?');" >Borrar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}

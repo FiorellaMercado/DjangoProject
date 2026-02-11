@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block contenido %}
+{% load static %}
+    <div class="slider-container">
+        <div class="slider"> 
+            <img src="{% static 'img/present1.png' %}" class="slider-image" alt="Imagen 1">
+            <img src="{% static 'img/present2.jpg' %}" class="slider-image" alt="Imagen 2">
+			 <img src="{% static 'img/present3.jpg' %}" class="slider-image" alt="Imagen 3">
+        </div>
+        <div class="slider-pagination"></div>
+        <div class="slider-controls">
+            <button class="prev-button boton-img"><img src="{% static 'img/flechaizq.png' %}" alt=""></button>
+            <button class="next-button boton-img"><img src="{% static 'img/flechader.png' %}" alt=""></button>
+        </div>
+    </div>
+    <div class="enun">
+        <p class="p11">Vé los nuevos lanzamientos</p>
+        <a href="{% url 'catalogo' %}"> <p class="p12" >Ver todo</p></a>
+    </div>
+    <div class="containerl">
+
+        {% for articulo in ultimos_articulos %}
+            <div class="elementos">
+                <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}">
+                <p>{{ articulo.nombre }}</p>
+                {% if forloop.counter < 2 %}
+                    <p class="precio">{{ articulo.precio }} Gs</p>
+                {% else %}
+                    <a href="{% url 'catalogo' %}">Ver más</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+    </div>
+    {%endblock%}

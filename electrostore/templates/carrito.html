@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+{% load static %}
+
+<div class=" my-0 mx-3">
+    <h3 class="text-center">Carrito De Compras</h3>
+   
+    <div class="row mx-auto  ">
+        <div class="col  py-3 carro col-md-6 col-12" >
+            <br>
+            <div class="row  m-1 border p-1 shadow-sm rounded">
+                <p style="text-align: right;">x</p>
+                Auricular
+            </div>
+            <hr>
+            <div class="row  m-1 border p-1 shadow-sm rounded">
+                <p style="text-align: right;">x</p>
+                Nokia
+            </div>
+            <hr>
+            <div class="d-flex m-1 justify-content-end">
+                <button
+                    type="submit"
+                    class="btn btn-outline-dark"
+                >
+                    ACTUALIZAR CARRITO
+                </button>
+                
+            </div>
+           
+        </div>
+        <div class="col  p-3 col-md-6 col-12">
+            
+            <h5 class="fw-bold">Total del Carrito</h5>
+            <hr>
+            <div class="row ">
+                <div class="col ">
+                    <p class="fw-bold">SUBTOTAL</p>
+                </div>
+                <div class="col  ">
+                    <p> xxx Gs</p>
+                </div>
+            </div>
+            <div class="row  ">
+                <div class="col ">
+                    <p class="fw-bold">Envío</p>
+                </div>
+                <div class="col ">
+                    <p> el envío hskdhskahdks sdhga jghasgds kjbhaskhd kjhaskjdh kjhaskj</p>
+                </div>
+            </div>
+            <div class="row   ">
+                <div class="col d-none d-md-block">
+                    
+                </div>
+                <div class="col  ">
+                    <p class="fw-bold"> CALCULAR EL ENVÍO</p>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"placeholder="Ciudad"/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"placeholder="Calle"/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"placeholder="Referencias"/>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex  justify-content-between">
+                <p class="fw-bold">TOTAL</hp>
+                <p> xxx Gs</p>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-dark"
+            >
+                PROCEDER A LA COMPRA
+            </button>
+            
+        </div>
+    </div>
+
+</div>
+
+ 
+
+{% endblock %}
+

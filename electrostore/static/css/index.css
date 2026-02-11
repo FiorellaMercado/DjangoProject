@@ -1,0 +1,424 @@
+body{
+    margin:0px;
+    padding:0px;
+    }
+    *{
+    margin: 0px;
+    padding:0px;
+    
+    }
+    .navbarl{
+    display: flex; /* Utiliza flexbox para alinear verticalmente el contenido */
+    width:100%;
+    margin:auto;
+    justify-content: space-between;
+    padding: 0 16px;
+    align-items: center;
+    height:90px;
+    
+     
+    }
+    
+    .raya{
+    margin:4px 5px;
+    display:inline-block;
+    background-color:black;
+    width:2px;
+    height:20px;
+    
+    
+    }
+    /* Estilos para ocultar los botones en pantallas pequeñas */
+    .hide-on-small {
+        display: inline;
+    }
+    
+    .show-on-small {
+        display: none;
+    }
+    
+    /* Estilos para mostrar el menú desplegable en pantallas pequeñas */
+    
+    @media only screen and (max-width: 768px) {
+        .hide-on-small {
+            display: none;
+        }
+        .show-on-small {
+            display: inline;
+        }
+        #dropdown-menu {
+        display: none;
+        flex-direction: column; /* Cambia el flujo de los elementos a columna */
+        position: absolute; /* Asegura que el menú desplegable esté fuera del flujo normal del documento */
+        top: 72px; /* Alinea el menú desplegable debajo de la barra de navegación */
+        right: 0;
+         /* Mismo color de fondo que la barra de navegación */
+        width: 40%;
+    }
+    
+    #dropdown-menu.show {
+        display: flex;
+        }
+    }
+    
+    
+    
+    
+    .elementos {
+    
+     width:30.33%;
+     max-height:200; 
+     padding:10px;
+     border: 1px solid gray;
+     padding:10px;
+     margin:1.5%;
+     border-radius: 32px;
+     box-sizing:border-box;
+     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+     /*display: flex;  Convertimos el contenedor en un contenedor flex 
+      justify-content: center; /* Centramos horizontalmente 
+      align-items: center;*/
+      
+      /*
+    flex: 0 0 calc(33.3% - 0px);display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background-color: green;
+      box-sizing:border-box;
+      flex-wrap: wrap; /* Asegura que los elementos se envuelvan cuando no quepan en una sola fila */
+    }
+    
+    .containerl{
+      display: flex;
+    margin:auto;
+    width:80%;
+      flex-wrap: wrap;
+    padding:10px;
+    }
+    .elementos img {
+        max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block; 
+      /* Ajustamos la altura de la imagen */
+      /*object-fit: contain; /* Mantenemos la relación de aspecto y ajustamos el tamaño 
+      box-sizing: border-box;*/
+    }
+    .elementos p{ 
+        margin-bottom:5px;
+    }
+    .precio{
+    font-size:12px;
+    color: gray;
+    }
+    .dos{
+    display:none;
+    margin-bottom:5px;
+    }
+    .tres{
+    display:block;
+    margin-bottom:5px;
+    }
+    
+    .boton-img {
+          border: none;
+          background: none;
+          cursor: pointer;
+          margin:5px;
+    }
+    .boton-img img{
+          width:20px;
+    }
+    
+    .botonimg {
+      border: none;
+      background: none;
+      cursor: pointer;
+      margin:5px;
+      text-decoration: none; 
+      font-size: small;
+      color: black;
+    }
+    
+    .cont-der{
+    display: flex;
+    align-items: center;
+    }
+    
+    .botonimg p {   
+    font-size:10px;
+    margin-top:0px;
+    margin-right:8px;
+    font-weight: 700;
+    }
+    
+    .botonimg:hover,.boton-img:hover{
+      opacity:0.5;
+        
+    }
+    .botonimg:active {
+    border-bottom: 2px solid black; /* Agrega un borde negro de 2px en la parte inferior */
+    }
+    
+    .submenu{
+        
+        border:2px solid black;
+        background-color:black;
+        color:white;
+        height:40px;
+        margin-right:15px;
+        text-decoration: none;
+        text-align:center;
+        z-index: 999;
+        border-radius: 0px;
+    }
+    .submenu img{
+        width:20px;
+        filter: invert(100%);
+    }
+    .submenu:hover{
+        
+        border:2px solid black;
+        background-color:white;
+        color:black;
+        
+    }
+    .submenu:hover img {
+      filter: none;
+    }
+    
+    .slider-container {
+      position: relative;
+      width: 80%;
+      /* Ajusta el ancho según tus necesidades */
+      height:600px;
+    
+      overflow: hidden;
+      margin:auto;
+      margin-top:20px;
+     margin-bottom:40px;
+      border-radius: 32px;
+    }
+    
+    .slider-image {
+      width: 100% ;
+      height:100%;
+      position: absolute;
+        
+      top: 0;
+      left: 0;
+      
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease; 
+    }
+    
+    .slider-image.active {
+      opacity: 1;
+      visibility: visible;
+    
+    }
+    
+    
+    .slider-pagination {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .pagination-item {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 0 5px;
+      display: inline-block;
+    }
+    
+    .pagination-item.active {
+      background-color: white;
+    }
+    
+    
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .prev-button,
+    .next-button {
+      
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin:8px;
+  
+    }
+    
+    .prev-button:focus,
+    .next-button:focus {
+      outline: none;
+    }
+    
+    
+    /* Media query para pantallas más pequeñas */
+    @media screen and (max-width: 768px) {
+    
+        .elementos{
+         width:46%;
+         max-height:100; 
+         margin:1.6%;
+    
+        /*flex: 0 0 calc(50% - 20px);
+        flex-direction: column;
+        align-items: center;*/
+        }
+        .slider-container {
+          /* Ajusta el ancho según tus necesidades */
+          height:280px;
+        }
+          /*.elementos img {
+            display: inline;
+            width: 50%; Cambia el ancho de las imágenes para que se ajusten mejor en una columna 
+            margin: 15px;  Ajusta los márgenes de las imágenes margin: 25px 0;
+          }*/
+        .dos{
+        display:block;
+        }
+        .tres{
+        display:none;
+        }
+        
+    }
+    
+    .p11{
+        font-size:24px; font-weight: bold;
+    }
+    .p12{
+        color:#89530F
+    }
+    .lineagris{
+        background-color: rgb(201, 200, 200); 
+        width:94%;  
+        margin:auto;
+        height: 1px; 
+        margin-top:40px;
+    }
+    .container1{
+        display:flex;
+        justify-content: right; 
+        margin-right: 3%;
+        /*background-color: green;*/
+          
+    }
+    .lineanegra{
+        background-color: rgb(51, 50, 50);
+        width:220px; 
+        height: 1px;  
+        
+        
+    }
+    .n{
+    height:60%;
+    /*background-color: red; */} 
+    .linea{
+        display:block;
+        background-color: rgb(255, 255, 255); 
+        margin-top: 10px;  
+        margin-bottom: 24px;
+        margin-left: 40px; 
+    }
+    .linea p{
+        display:inline;
+        margin:5px; 
+    }
+    .icon {
+        margin-top:5px;
+        display:flex;
+        height: auto;  
+        margin-right:3%;
+        justify-content: right; 
+    }
+    .icon img { 
+        width:20px; 
+        height: auto; 
+        margin:4px; 
+    }
+    .copy{
+        margin:15px;
+    }
+    .copy p{
+        display: inline;
+        
+    }
+    
+    .p1{
+        color: gray;
+    }
+    p{
+        color: black;
+    }
+    
+    @media only screen and (max-width: 768px){
+        .linea p{
+            display:block; 
+        }
+        .icon img { 
+            width:15px; 
+        }
+        .lineanegra{
+           width:200px;
+        }
+        .p11{
+            font-size:10px; 
+            
+        }
+        .p12{
+            color:#89530F;
+            font-size:8px;
+        }
+    }
+    .enun{
+    display:flex;
+    width:80%;
+    margin:auto;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .card {
+      transition: transform 0.2s;
+  }
+  
+  .card:hover {
+      transform: scale(1.05);
+  }
+  
+  .hide-on-small {
+      display: none;
+  }
+  
+  @media (min-width: 767px) {
+      .hide-on-small {
+          display: inline;
+      }
+  }
+
+  .custom-main-container {
+    padding-top: 0 !important;  /* Sobrescribir cualquier padding-top */
+    margin-top: 0 !important;   /* Sobrescribir cualquier margin-top */
+  }
+
+  .limited-text {
+    max-width: 250px; /* Define el ancho máximo que desees */
+    white-space: nowrap; /* Evita que el texto se desborde en múltiples líneas */
+    overflow: hidden; /* Oculta el texto que se desborde */
+    text-overflow: ellipsis; /* Añade puntos suspensivos (...) cuando el texto se desborda */
+  }

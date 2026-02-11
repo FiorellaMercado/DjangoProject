@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+{% load static %}
+
+<div class="m-3">
+    <div class=" container mx-auto  px-5  py-3 border  shadow-sm rounded">
+        <h3 class="text-center">{{articulo.nombre}}</h3>
+        
+        <center><img class="m-5" src="{{ articulo.imagen.url }}" width="30%"> </center>
+        <div class="d-flex">
+            <p class="fw-bold">Categoría: </p>
+            <p>&nbsp; {{ articulo.categoria}}</p>
+        </div>
+        <div class="d-flex">
+            <p class="fw-bold"> Precio:  </p>
+            <span style="white-space: nowrap;">&nbsp;{{ articulo.precio_formateado }} Gs</span> 
+        </div>
+        <p class="fw-bold"> Descripción:  </p>
+        <div class="">
+        <p style="text-align: justify ;">{{ articulo.descripcion}}</p>
+        </div>
+        
+    </div>
+</div>
+
+                        
+
+{% endblock %}

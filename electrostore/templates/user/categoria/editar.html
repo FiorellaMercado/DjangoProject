@@ -1,0 +1,18 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Editar categoria {%endblock%}
+{% block names %} 'us_categoria' {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Editar categoria</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la categoria</h4>
+        {%include 'user/form.html' with cancel_url='us_categorias' %}
+
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+{%endblock%}

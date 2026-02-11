@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block contenido %}  
+    <div class="login-container mt-0">
+        <h4>Registro</h4>
+        <form method="post" action="{% url 'registro' %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="user" id="user" name="user" required placeholder="Usuario">
+            </div>
+            <div class="input-group">
+                 
+                <input type="email" id="correo" name="correo" required placeholder="Correo">
+                <small id="helpId" class="form-text text-muted"></small>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="Contraseña">
+                
+            </div>
+            
+            
+
+            <div class="input-group">
+                <input type="nombre" id="nombre" name="nombre" required placeholder="Nombre">
+            </div>
+            <div class="input-group">
+                <input type="apellido" id="apellido" name="apellido" required placeholder="Apellido">
+            </div>
+            <div class="input-group">
+                <input type="cedula" id="cedula" name="cedula" required placeholder="Cédula">
+            </div>
+            <div class="input-group">
+                <input type="direccion" id="direccion" name="direccion" required placeholder="Dirección">
+            </div>
+            <div class="input-group">
+                <input type="telefono" id="telefono" name="telefono" required placeholder="Teléfono">
+            </div>
+            <div class="input-group">
+                <input type="hidden" id="rol" name="rol" value="1">
+            </div>
+            <br>
+            <button class="button-sub" type="submit">Registrar</button>
+        </form>
+        <br>
+        {% if form.errors %}
+            <ul>
+                {% for error in form.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <br>
+    </div>
+{% endblock %}
+

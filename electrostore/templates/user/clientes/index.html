@@ -1,0 +1,57 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Lista de clientes {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'cli_crear' %}" role="button"> Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Clientes</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Correo</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td scope="row">{{ cliente.id}}</td>
+                        <td>{{ cliente.cedula}}</td>
+                        <td>{{ cliente.nombre}}</td>
+                        <td>{{ cliente.apellido}}</td>
+                        <td>{{ cliente.direccion}}</td>
+                        <td>{{ cliente.telefono}}</td>
+                        <td>{{ cliente.correo}}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'cli_editar' cliente.id %}" role="button" >Editar</a> 
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{% url 'cli_eliminar' cliente.id %}" role="button" >Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}

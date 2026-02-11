@@ -1,0 +1,17 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Editar nuevo detalle{%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Editar detalle</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del detalle</h4>
+        {%include 'user/form.html' with cancel_url='us_det_factura' %}
+
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+{%endblock%}

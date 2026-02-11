@@ -1,0 +1,46 @@
+<form enctype="multipart/form-data" method="post" id="mi_formulario">
+    {% csrf_token %}
+    {% for campo in formulario %}
+        <div class="mb-3">
+            <label for="{{ campo.id_for_label }}" class="form-label">{{ campo.label }}</label>
+
+            
+
+            {% if campo.field.widget.input_type == 'file' and campo.value %}
+                <br/>
+                <img src="{{ MEDIA_URL }}/imagenes/{{ campo.value }}" height="100" alt="" srcset="">
+            {% endif %}
+
+            {% if campo.field.choices %}  <!-- Verifica si el campo tiene opciones definidas -->
+                <select class="form-select" name="{{ campo.name }}" id="{{ campo.id_for_label }}">
+                    <option value="">Selecciona una opción</option>
+                    {% for choice_value, choice_label in campo.field.choices %}
+                        {% if choice_value %}
+                            <option value="{{ choice_value }}" {% if campo.value|stringformat:"s" == choice_value|stringformat:"s" %} selected {% endif %}>{{ choice_label }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                
+            {% else %}
+                {% if campo.label == 'Precio' %}
+                    <input type="text" class="form-control" name="{{ campo.name }}" id="idprecio" aria-describedby="helpId" placeholder="{{ campo.label }}" value="{{ campo.value | default:'' }}">
+                {% else %}
+                    <input type="{{ campo.field.widget.input_type }}" class="form-control" name="{{ campo.name }}" id="{{ campo.id_for_label }}" aria-describedby="helpId" placeholder="{{ campo.label }}" value="{{ campo.value | default:'' }}">
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="col-12 help-text">
+            {{ campo.errors }}
+        </div>
+    {% endfor %}
+
+    <input name="" id="" class="btn btn-success" type="submit" value="Enviar" />
+    <a name="" id="" class="btn btn-primary" href="{% url cancel_url %}" role="button">Cancelar</a>
+</form>
+
+<script>
+    document.getElementById('mi_formulario').addEventListener('submit', function(e) {
+        var precioInput = document.getElementById('idprecio');
+        precioInput.value = precioInput.value.replace(/[^\d]/g, ''); // Eliminar los separadores de miles antes de enviar el formulario
+    });
+</script>

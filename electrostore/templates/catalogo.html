@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+{% load static %}
+
+<div class="d-md-flex">
+    <div class="d-md-flex flex-column flex-shrink-0 p-3 bg-white position-relative" >
+        <div class="dropdown d-md-none mb-3">
+            <button class="boton-img dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtros
+                <img src="{% static 'img/filter.png' %}"  alt="Buscar">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for categoria in categorias %}
+                    <li><a class="dropdown-item" href="{% url 'catalogo_filtrado' categoria.id %}">{{ categoria.descripcion }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+        <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none d-none d-md-block position-md-static pr-3">
+            <svg class="bi pe-none me-2" width="8" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Categorías &nbsp;&nbsp;&nbsp;</span>
+
+            <input class="form-control ms-0 mr-3" type="search" id="categoriaSearch" placeholder="Buscar categoría" aria-label="Buscar" onkeyup="filtrarCategorias()">
+        </a>
+    
+        <hr class="d-none d-md-block " style="margin-right: 16px;">
+    
+        <ul class="nav nav-pills flex-column mb-auto d-none d-md-block position-md-static ">
+            {% for categoria in categorias %}
+                <li class="nav-item">
+                    <a href="{% url 'catalogo_filtrado' categoria.id %}" class="nav-link link-body-emphasis" aria-current="page">
+                        <svg class="bi pe-none me-2" width="0" height="16"><use xlink:href="#home"></use></svg>
+                        {{ categoria.descripcion }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <hr class="d-none d-md-block" style="margin-right: 16px;">
+    </div>
+
+    <div class="container-md flex-grow-1">
+        <div class="row row-cols-2  row-cols-md-3">
+            {% for articulo in articulos %}
+            <div class="col mb-4 pt-0 ">
+                <div class="card h-80">
+                    
+                    <img src="{{ articulo.imagen.url }}" class="img-fluid card-img-top p-3" alt="{{ articulo.nombre }}">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title  " data-toggle="tooltip" data-bs-placement="top" title="{{ articulo.nombre }}" >{{ articulo.nombre }}</h5>
+                        <p class="card-text"><strong> {{ articulo.precio }} Gs</strong></p>
+                        <a href="{% url 'detalle' articulo.id %}" class="btn btn-outline-dark">Ver Detalles</a>
+                    </div>
+                    
+                </div>
+                <br>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

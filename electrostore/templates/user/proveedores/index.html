@@ -1,0 +1,55 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Lista de proveedores {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'pro_crear' %}" role="button"> Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Proveedores</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">RUC</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proveedor in proveedores %}
+                    <tr>
+                        <td scope="row">{{ proveedor.id}}</td>
+                        <td>{{ proveedor.ruc}}</td>
+                        <td>{{ proveedor.nombre}}</td>
+                        <td>{{ proveedor.direccion}}</td>
+                        <td>{{ proveedor.telefono}}</td>
+                        <td>{{ proveedor.correo}}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'pro_editar' proveedor.id %}" role="button" >Editar</a> 
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{% url 'pro_eliminar' proveedor.id %}" role="button" >Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}

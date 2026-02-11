@@ -1,0 +1,51 @@
+{% extends "user/base.html" %}
+
+{% block titulo %}Lista de marca{%endblock%}
+
+{% block contenido %} 
+{% load humanize %}
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'mar_crear' %}" role="button">Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Marca</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for marca in marcas %}
+                    <tr>
+                        <td scope="row">{{ marca.id}}</td>
+                        <td>{{ marca.descripcion}}</td>
+                        
+                        <td> 
+                            <div class="d-flex ">
+                                <a name="" id="" class="btn btn-info" href="{% url 'mar_editar' marca.id %}" role="button" >Editar</a> 
+                                <p class="ms-2 mr-2">|</p>&nbsp;&nbsp;
+                                <a name="" id="" class="btn btn-danger" href="{% url 'mar_eliminar' marca.id %}" role="button"  onclick="return confirm('¿Estás seguro de que deseas eliminar este artículo?');" >Borrar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}

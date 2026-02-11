@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sesion.css' %}">
+    <script src="{% static 'js/slider.js' %}" defer></script>
+    <script src="{% static 'js/toggle.js' %}" defer></script>
+    <title>Electrostore</title>
+    <link rel="icon" type="image/png" href="{% static 'img/logo2.png' %}">
+    <style>
+
+        .carro{
+            padding-right: 10rem; 
+            padding-left: 6rem;
+        }
+        @media screen and (max-width: 767px) {
+            .carro{
+                padding-right: 1rem; 
+                padding-left: 1rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbarl">
+            
+            <div class="d-flex align-items-center">
+                <a href="{% url 'iniciar_sesion' %}" class="boton-img">
+                    <img src="{% static 'img/blo.png' %}"alt="Buscar" >
+                </a>
+                <img src="{% static 'img/logo.png' %}" alt="Electrostore" width="220px">
+            </div>
+            <div class="cont-der">
+                <a href="{% url 'carrito' %}" class="d-md-none boton-img">
+                    <img src="{% static 'img/carro.png' %}"  alt="Buscar">
+                </a>
+                <a href="{% url 'index' %}" class="d-none d-md-block d-lg-block botonimg">Tienda</a>
+                <a href="{% url 'catalogo' %}" class="d-none d-md-block botonimg">Catálogo</a>
+                <a href="{% url 'contacto' %}" class="d-none d-md-block botonimg">Contacto</a>
+                <div class="raya d-none d-md-block"></div>
+                <button class="d-none d-md-block boton-img"><img src="{% static 'img/lupa.png' %}"  alt="Buscar"></button>   
+                <a href="{% url 'carrito' %}" class="d-none d-md-block boton-img">
+                    <img src="{% static 'img/carro.png' %}" alt="Carrito">
+                </a>
+                <!--<a href="{% url 'iniciar_sesion' %}" class="d-none d-md-block boton-img">
+                  <img src="{% static 'img/sesion.png' %}" alt="Sesión">
+                </a> -->
+                {%  if request.user %}
+                    <div class="dropdown">
+                        <a href="#" class="d-none d-md-block boton-img " id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'img/usuario.png' %}" alt="Sesión">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><span class="dropdown-item-text">{{ request.user.nombre }} {{ request.user.apellido }}</span></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Perfil</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{% url 'iniciar_sesion' %}" class="d-none d-md-block boton-img">
+                        <img src="{% static 'img/sesion.png' %}" alt="Sesión">
+                    </a>
+                {% endif %}
+                <button id="hamburger-menu" class="d-md-none boton-img"><img src="{% static 'img/menu.png' %}" alt="Menú"></button> <!-- Botón de hamburguesa -->
+                <div id="dropdown-menu"> <!-- Menú desplegable -->
+                    <a name="" id="" class="btn submenu show-on-small" href="{% url 'index' %}" role="button">Tienda</a>
+                    <a name="" id="" class="btn submenu show-on-small"  href="{% url 'catalogo' %}" role="button">Catálogo</a>
+                    <a name="" id="" class="btn submenu show-on-small"  href="{% url 'contacto' %}" role="button">Contacto</a>
+                    <button class="submenu show-on-small"><img src="{% static 'img/lupa.png' %}" alt="Buscar"></button>
+                    <a href="{% url 'iniciar_sesion' %}" class="submenu show-on-small">
+                        <img src="{% static 'img/sesion.png' %}" alt="Sesión">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    {% block contenido %}  {%endblock%}
+
+    <footer>
+        <div class="n">
+            <div class="lineagris"></div>
+            <div class="linea">
+                <p>Contacto</p>
+                <p>Términos y servicios</p>
+                <p>Envíos y devoluciones</p>
+            </div>	
+            <div class="container1">
+                <div class="lineanegra"></div>
+            </div>
+            <div class="icon">
+                <button class="boton-img"><img src="{% static 'img/whatsapp.png' %}"  ></button>
+                <button class="boton-img"><img src="{% static 'img/facebook.png' %}" ></button>
+                <button onclick="location.href='https://www.instagram.com/electro_st0re_?igsh=MWJ0bjhjazdmYjZjdg%3D%3D&utm_source=qr'"
+                class="boton-img"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></button>
+            </div>
+            <div class="copy">
+                <p>©2024<p> 
+                <p class="p1">Terms of use </p>
+                <p>and </p>
+                <p class="p1">privacy policy.</p>
+            </div>
+        </div>  
+    </footer>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"
+    ></script> 
+    <script>
+      $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip(); 
+      });
+    </script> 
+    <script>
+        function filtrarCategorias() {
+            // Obtener el valor del campo de búsqueda
+            var input = document.getElementById('categoriaSearch');
+            var filter = input.value.toLowerCase();
+            var ul = document.getElementById('categoriaList');
+            var li = ul.getElementsByTagName('li');
+        
+            // Recorrer todas las categorías y mostrar/ocultar según el filtro
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName('a')[0];
+                var textValue = a.textContent || a.innerText;
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        </script>    
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+
+.login-container {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="user"],
+input[type="nombre"],
+input[type="apellido"],
+input[type="cedula"],
+input[type="direccion"],
+input[type="telefono"],
+input[type="rol"]
+{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="user"]:focus,
+input[type="nombre"]:focus,
+input[type="apellido"]:focus,
+input[type="cedula"]:focus,
+input[type="direccion"]:focus,
+input[type="telefono"]:focus,
+input[type="rol"]:focus {
+    outline: none;
+}
+
+.button-sub {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    margin-bottom: 20px;
+}
+
+.remember-me label {
+    margin-left: 5px;
+}

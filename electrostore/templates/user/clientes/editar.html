@@ -1,0 +1,18 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Editar clientes {%endblock%}
+{% block names %} 'us_clientes' {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Editar clientes</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del cliente</h4>
+        {%include 'user/form.html' with cancel_url='us_clientes' %}
+
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+{% load static %}
+<div class="m-3">
+<div class="container " style="border-radius: 32px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);">
+    <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+    
+        <div class="row p-3 mx-auto" >
+            
+            <div class="col-md-6  px-3 py-5">
+                
+                <h4 class="card-title">Contactános</h4>
+                <p class="card-text"></p>
+                <div class="d-flex align-items-center">
+                    <button class="boton-img"><img src="{% static 'img/ubi.png' %}"  ></button>
+                    <p class="my-auto">M4 L18 Av. Caacupe, Km 25 Ruta 2 Itauguá, Paraguay</p>
+                </div>
+                
+             
+                <div class="d-flex align-items-center">
+                    <button class="boton-img"><img src="{% static 'img/correo.png' %}"  ></button>
+                    <p class="my-auto">electrostore.tienda@gmail.com</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="boton-img"><img src="{% static 'img/llama.png' %}"  ></button>
+                    <p class="my-auto">021 892 8xx</p>
+                </div>
+                <br>
+                <h4 class="card-title">Síguenos</h4>
+                <div class="d-flex">
+                    <button class="boton-img"><img src="{% static 'img/whatsapp.png' %}"  ></button>
+                    <button class="boton-img"><img src="{% static 'img/facebook.png' %}" ></button>
+                    <button onclick="location.href='https://www.instagram.com/electro_st0re_?igsh=MWJ0bjhjazdmYjZjdg%3D%3D&utm_source=qr'"
+                    class="boton-img"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></button>
+                </div>
+                <br>
+                
+            </div>
+            
+            <div class="col-md-6 px-3 " >
+                <br>
+                <h4 class="card-title">Formulario de contacto</h4>
+                <br>
+                <div class="mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name=""
+                        id=""
+                        aria-describedby="helpId"
+                        placeholder="Nombre"
+                    />
+                </div>
+                
+                <div class="mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name=""
+                        id=""
+                        aria-describedby="helpId"
+                        placeholder="Correo electrónico válido"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    
+                    <textarea class="form-control" name="" id="" rows="5" placeholder="Mensaje"></textarea>
+                </div>
+                
+                
+                <button
+                    type="submit"
+                    class="btn btn-dark"
+                >
+                    Enviar
+                </button>
+                
+                <br>
+                <br>
+            
+            </div>
+        
+     
+    </div>
+</div>
+</div>
+
+{% endblock %}

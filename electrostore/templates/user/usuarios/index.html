@@ -1,0 +1,57 @@
+{% extends "user/base.html" %}
+
+{% block titulo %} Lista de usuarios {%endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'usu_crear' %}" role="button"> Nuevo + </a>
+        
+    </div>
+        
+    <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+        <div
+            class="table-responsive"
+        >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td scope="row">{{ usuario.id}}</td>
+                        <td>{{ usuario.cedula}}</td>
+                        <td>{{ usuario.nombre}}</td>
+                        <td>{{ usuario.apellido}}</td>
+                        <td>{{ usuario.direccion}}</td>
+                        <td>{{ usuario.telefono}}</td>
+                        <td>{{ usuario.correo}}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'usu_editar' usuario.id %}" role="button" >Editar</a> 
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{% url 'usu_eliminar' usuario.id %}" role="button" >Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{%endblock%}
