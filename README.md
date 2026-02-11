@@ -1,23 +1,22 @@
-# 🛒 ElectroStore - Proyecto Django
+# ElectroStore - Proyecto Django
 
 ElectroStore es una aplicación web desarrollada con Django que simula un sistema de tienda en línea.
 
-## 🚀 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - Python
 - Django
-- SQLite
 - HTML
 - CSS
 
-## 📌 Funcionalidades
+## Funcionalidades
 
 - Gestión de productos
 - Panel administrativo
 - Base de datos integrada
 - Sistema estructurado con Django
 
-## ⚙️ Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto
 
 1. Clonar el repositorio:
 
@@ -35,6 +34,6 @@ ElectroStore es una aplicación web desarrollada con Django que simula un sistem
 
    http://127.0.0.1:8000/
 
-## 👩‍💻 Autora
+## Autora
 
 Fiorella Mercado
