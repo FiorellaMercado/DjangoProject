@@ -52,3 +52,7 @@ Una vez realizadas las migraciones, los datos (productos, categorías, etc.) deb
 ## Autora
 
 Fiorella Mercado
+
+## Nota
+
+Este enfoque es habitual en proyectos académicos y de desarrollo, donde la estructura del sistema se comparte mediante migraciones, pero los datos se gestionan de forma local.
