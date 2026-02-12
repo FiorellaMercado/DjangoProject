@@ -1,7 +1,8 @@
 # ElectroStore - Proyecto Django
 
-Proyecto Académico 2024.
-ElectroStore es una aplicación web desarrollada con Django que simula un sistema de tienda en línea.
+Proyecto Académico 2024. ElectroStore es una aplicación web desarrollada con Django que simula un sistema de tienda en línea.
+- Materia: Optativo V
+- Semestre: 9° 
 
 ## Tecnologías utilizadas
 
